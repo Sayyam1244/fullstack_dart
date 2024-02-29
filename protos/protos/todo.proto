@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message Todo{
+    int32 id = 1;
+    string title = 2;
+    optional string description = 3;
+    bool isCompleted = 4;
+}
+message TodoQuery{
+    int32 id = 1;
+}
+message Todos{
+    repeated Todo todos = 1;
+}
+
+service TodoService{
+    rpc getTodo(TodoQuery) returns (Todo);
+    rpc getAllTodos(TodoQuery) returns (Todos);
+    rpc AddTodo(Todo) returns (Todo);
+}
