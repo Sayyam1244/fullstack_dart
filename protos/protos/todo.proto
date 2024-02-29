@@ -16,5 +16,7 @@ message Todos{
 service TodoService{
     rpc getTodo(TodoQuery) returns (Todo);
     rpc getAllTodos(TodoQuery) returns (Todos);
+    rpc streamTodo(TodoQuery) returns (stream Todo);
     rpc AddTodo(Todo) returns (Todo);
+
 }
